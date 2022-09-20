@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="update_menu.css">
 </head>
 <body>
+    <!-- Navbar -->
     <nav>
         <ul class = "nav_item">
             <li class="nav_list"><a href="#">Home</a></li>
@@ -19,5 +20,40 @@
 
         </ul>
     </nav>
+
+
+
+
+<!-- Form -->
+<div class="parentBox">
+<div class="container">
+ <form action=""><table>
+    <tr>
+        <td>
+            <label for="">Day: </label>
+        </td>
+        <td>
+            <select placeholder ="Day">
+                <option placeholder ="Day">Sunday</option>
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+            </select>
+        </td>
+        <td>Meal Type: </td>
+        <td><Select><option value="">Breakfast</option>
+        <option value="">Lunch</option></Select></td>
+    </tr>
+    <tr><td></td><td></td> <td>Meal Item: </td>
+        <td><input type="number"></td></tr>
+    <tr> <td></td><td></td><td>Price: </td>
+        <td><input type="number"></td></tr>
+</table></form> 
+
+
+</div>
+</div>
+
 </body>
 </html>
