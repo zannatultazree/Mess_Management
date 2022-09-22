@@ -15,6 +15,7 @@
             <li class="nav_list"><a href="#">Billing</a></li>
             <li class="nav_list"><a href="#">Food Request</a></li>
             <li class="nav_list"><a href="#">Member Request</a></li>
+            <li class="nav_list"><a href="#">Menu</a></li>
             <li class="nav_list"><a href="#">Update Menu</a></li>
             <li class="nav_list"><a href="#">Logout</a></li>
 
@@ -27,7 +28,12 @@
 <!-- Form -->
 <div class="parentBox">
 <div class="container">
- <form action=""><table>
+ <form action="<?php $_SERVER['PHP_SELF']?>_"><table>
+    <?php
+      $conn = mysqli_connect("localhost", "root", "", "Mess_Management") or die("Connection failed");
+       $sql = "SELECT * FROM updateMenu";
+
+    ?>
     <tr>
         <td>
             <label for="">Day: </label>
