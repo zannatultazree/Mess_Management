@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu</title>
     <link rel="stylesheet" href="update_menu.css">
     <link rel="stylesheet" href="menu.css">
 </head>
@@ -23,36 +23,45 @@
         </ul>
     </nav>
 
+    <div id="main-content">
+    <h2>All Records</h2>
+    <?php 
+      $conn = mysqli_connect("localhost", "root", "", "Mess_Management") or die("Connection Failed");
+      $sql = "SELECT * FROM updatemenu";
+      $result = mysqli_query($conn, $sql)or die("Query failed");
 
-<div id="main-content">
-    
-    
+      if(mysqli_num_rows($result) >0) {
+
+    ?>
     <table cellpadding="7px">
         <thead>
         <th>Id</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Class</th>
-        <th>Phone</th>
-        <th>Action</th>
+        <th>Day</th>
+        <th>Meal Type</th>
+        <th>Meal Item</th>
+        <th>Price</th>
+  
         </thead>
         <tbody>
-            <? php 
+            <?php 
             while($row = mysqli_fetch_assoc($result)){
+
             ?>
             <tr>
-                <td><? php echo $row['sid']; ?></td>
-                <td><? php echo $row['sname']; ?></td>
-                <td><? php echo $row['saddress']; ?></td>
-                <td><? php echo $row['sclass']; ?></td>
-                <td><? php echo $row['sphone']; ?></td>
+                <td><?php echo $row['itemId']; ?></td>
+                <td><?php echo $row['day']; ?></td>
+                <td><?php echo $row['mealType']; ?></td>
+                <td><?php echo $row['mealItem']; ?></td>
+                <td><?php echo $row['price']; ?></td>
                 <td>
-                    <a href='edit.php'>Edit</a>
+                    <a href="update_menu.php?id=<?php echo $row['itemId']; ?>"> Edit</a>
                     <a href='delete-inline.php'>Delete</a>
                 </td>
             </tr>
-            <? php  } ?>
+             <?php } ?>
         </tbody>
     </table>
-    
+
+    <a href="add_data.php"><input type = "submit" value= "ADD Item"class="add"></a>
+    <?php  } ?>
 </div>
