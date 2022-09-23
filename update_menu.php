@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<htm lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="menu.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
+
+     <!-- Navbar -->
+     <nav>
         <ul class = "nav_item">
             <li class="nav_list"><a href="#">Home</a></li>
             <li class="nav_list"><a href="#">Billing</a></li>
@@ -23,51 +24,45 @@
     </nav>
 
 
-
-
-<!-- Form -->
-
 <div id="main-content">
-    <h2>Update Record</h2>
-    <?php
-      $conn = mysqli_connect("localhost", "root", "", "Mess_Management") or die("Connection failed");
-
-       $item_id = $_GET['id'];
-       $sql = "SELECT * FROM updatemenu WHERE itemId = {$item_id}";
-       $result = mysqli_query($conn, $sql)or die("Query failed");
-
-       if(mysqli_num_rows($result) > 0){
-    while($row = mysqli_fetch_assoc($result)){
-
-       
-    ?>
-    <form class="post-form" action="updatedata.php" method="post">
-
-      <div class="form-group">
-          <label>Day</label>
-          <input type="hidden" name="itemId" value="<?php echo  $row['itemId']; ?>"/>
-          <input type="text" name="day" value="<?php echo  $row['day']; ?>"/>
-      </div>
-     
-      <div class="form-group">
-          <label>Meal Type</label>
-          <input type="text" name="mealType" value="<?php echo  $row['mealType']; ?>"/>
-      </div>
-
-      <div class="form-group">
-          <label>Meal Item</label>
-          <input type="text" name="mealItem" value="<?php echo  $row['mealItem']; ?>"/>
-      </div>
-      <div class="form-group">
-          <label>Price</label>
-          <input type="text" name="price" value="<?php echo  $row['price']; ?>"/>
-      </div>
-      <input class="submit" type="submit" value="Update"/>
+    <h2>Edit Record</h2>
+    <form class="post-form" action="" method="post">
+        <div class="form-group">
+            <label>Id</label>
+            <input type="text" name="sid" />
+        </div>
+        <input class="submit" type="submit" name="showbtn" value="Show" />
     </form>
-    <?php }
-    }?>
+
+    <form class="post-form" action="updatedata.php" method="post">
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="hidden" name="sid"  value="" />
+            <input type="text" name="sname" value="" />
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" name="saddress" value="" />
+        </div>
+        <div class="form-group">
+        <label>Class</label>
+        <select name="sclass">
+            <option value="" selected disabled>Select Class</option>
+            <option value="1">BCA</option>
+            <option value="2">BSC</option>
+            <option value="3">B.TECH</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" name="sphone" value="" />
+        </div>
+    <input class="submit" type="submit" value="Update"  />
+    </form>
 </div>
 </div>
+</body>
+</html>
 
 </body>
 </html>

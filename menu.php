@@ -11,7 +11,9 @@
 <body>
     <!-- Navbar -->
     <nav>
+        
         <ul class = "nav_item">
+        <img src="BUP LOGO.png" alt="logo" width = "30" hight="25" class="logo">
             <li class="nav_list"><a href="#">Home</a></li>
             <li class="nav_list"><a href="#">Billing</a></li>
             <li class="nav_list"><a href="#">Food Request</a></li>
@@ -35,7 +37,7 @@
     ?>
     <table cellpadding="7px">
         <thead>
-        <th>Id</th>
+       
         <th>Day</th>
         <th>Meal Type</th>
         <th>Meal Item</th>
@@ -48,13 +50,13 @@
 
             ?>
             <tr>
-                <td><?php echo $row['itemId']; ?></td>
+               
                 <td><?php echo $row['day']; ?></td>
                 <td><?php echo $row['mealType']; ?></td>
                 <td><?php echo $row['mealItem']; ?></td>
                 <td><?php echo $row['price']; ?></td>
                 <td>
-                    <a href="update_menu.php?id=<?php echo $row['itemId']; ?>"> Edit</a>
+                    <a href="edit_menu.php?id=<?php echo $row['itemId']; ?>"> Edit</a>
                     <a href="delete.php?id=<?php echo $row['itemId']; ?>">Delete</a>
                 </td>
             </tr>

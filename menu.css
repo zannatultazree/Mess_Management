@@ -23,6 +23,10 @@ li.nav_list a:hover{
     color: tomato;
 }
 
+.logo{
+    justify-content: left;
+}
+
 
 
 
