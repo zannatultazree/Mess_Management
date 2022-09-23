@@ -1,3 +1,31 @@
+/* Navbar*/
+
+nav{
+    background-color: white;
+    box-shadow: 0 0 10px rgb(201, 194, 194);
+}
+ul.nav_item{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+li.nav_list a{
+    text-decoration: none;
+    padding: 15px 20px;
+    display: inline-block;
+    color: #222;
+    transition: .3s;
+}
+li.nav_list a:hover{
+    color: tomato;
+}
+
+
+
+
 body{
     font:16px arial;
     margin: 0;
@@ -170,5 +198,4 @@ body{
 }
 .add{
     padding: 1em;
-    box-align: right;
 }

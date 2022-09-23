@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Menu</title>
-    <link rel="stylesheet" href="update_menu.css">
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -26,68 +26,46 @@
 
 
 <!-- Form -->
-<div class="parentBox">
-<div class="container">
-<?php
+
+<div id="main-content">
+    <h2>Update Record</h2>
+    <?php
       $conn = mysqli_connect("localhost", "root", "", "Mess_Management") or die("Connection failed");
 
        $item_id = $_GET['id'];
-
        $sql = "SELECT * FROM updatemenu WHERE itemId = {$item_id}";
        $result = mysqli_query($conn, $sql)or die("Query failed");
 
-       if(mysqli_num_rows($result) >0) {
-         while($row = mysqli_fetch_assoc($result)){
+       if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+
+       
     ?>
- <form class ="post-form" action= "updatedata.php" method = "post"><table>
-    
-    <tr>
-        <td>
-            <label for="">Day: </label>
-        </td>
-        <td>
-            <?php
-            $sql1 = "SELECT * FROM updatemenu";
-            $result1 = mysqli_query($conn, $sql1)or die("Query unsuccessful");
+    <form class="post-form" action="updatedata.php" method="post">
 
-            if(mysqli_num_rows($result1) >0) {
-              echo  '<select name = "day">
-                <option value="" selected disabled> Day </option>';
-              while($row1 = mysqli_fetch_assoc($result1)){
+      <div class="form-group">
+          <label>Day</label>
+          <input type="hidden" name="itemId" value="<?php echo  $row['itemId']; ?>"/>
+          <input type="text" name="day" value="<?php echo  $row['day']; ?>"/>
+      </div>
+     
+      <div class="form-group">
+          <label>Meal Type</label>
+          <input type="text" name="mealType" value="<?php echo  $row['mealType']; ?>"/>
+      </div>
 
-              echo  "<option >{$row1['day']}</option>";
-              }
-            echo '</select>';
-            }
-            ?>
-        </td>
-        <td>Meal Type: </td>
-        <td>
-            <Select><option value="">Breakfast</option>
-        <option value="">Lunch</option></Select>
-    
-    </td>
-    </tr>
-    <tr>
-        <td>Item Id: </td>
-
-        <td> <input type="number" name = "itemId" value = "<?php echo $row['itemId']; ?>"/> </td>
-    </tr>
-    <tr><td></td><td></td> <td>Meal Item: </td>
-        <td><input type="text" value = "<?php echo $row['mealItem']; ?>" /></td></tr>
-    <tr> <td></td><td></td><td>Price: </td>
-        <td><input type="number" value = "<?php echo $row['price']; ?>" /></td></tr>
-        <tr> <td></td><td></td><td> </td>
-        <td><input type="Submit" value ="Update"></td></tr>
-</table>
-
-</form> 
-
-<?php }
-       }
-       ?> 
-
-
+      <div class="form-group">
+          <label>Meal Item</label>
+          <input type="text" name="mealItem" value="<?php echo  $row['mealItem']; ?>"/>
+      </div>
+      <div class="form-group">
+          <label>Price</label>
+          <input type="text" name="price" value="<?php echo  $row['price']; ?>"/>
+      </div>
+      <input class="submit" type="submit" value="Update"/>
+    </form>
+    <?php }
+    }?>
 </div>
 </div>
 

@@ -55,7 +55,7 @@
                 <td><?php echo $row['price']; ?></td>
                 <td>
                     <a href="update_menu.php?id=<?php echo $row['itemId']; ?>"> Edit</a>
-                    <a href='delete-inline.php'>Delete</a>
+                    <a href="delete.php?id=<?php echo $row['itemId']; ?>">Delete</a>
                 </td>
             </tr>
              <?php } ?>
